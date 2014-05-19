@@ -1,4 +1,4 @@
-﻿using Strategy.Actions;
+﻿using Strategy.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +11,13 @@ namespace Strategy
     {
         static void Main(string[] args)
         {
-            Dog dog = new Dog();
-            dog.DoIt();
-            dog.Action = new Go();
-            dog.DoIt();
+            IValidator sv = new HardValidator();
+            PasswordValidator pv = new PasswordValidator();
+
+            Console.WriteLine(pv.IsCorrectPassword("as..44d"));
+            pv.PasswordStrategy = sv;
+            Console.WriteLine(pv.IsCorrectPassword("as..44d"));
+            Console.WriteLine(pv.IsCorrectPassword("as..44dGG"));
 
 
             Console.ReadKey();

@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Strategy.Actions
+namespace Strategy.Validators
 {
-    class Say: IAction
+    interface IValidator
     {
-        public void Perform()
-        {
-            Console.WriteLine("Hi~");
-        }
+        bool Validate(string s);
     }
 }
